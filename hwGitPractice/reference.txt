@@ -1,0 +1,21 @@
+Getting and Creating Projects
+git init - initializes a directory as a Git repository
+git clone [url] - copy a git repository so you can add to it
+
+Basic Snapshotting
+git add [filename] - adds file contents to the staging area
+git status - view the status of your files in the working directory and staging area
+git diff - shows diff of what is staged and what is modified but unstaged
+git commit -m "[message]" - records a snapshot of the staging area
+git reset - undo changes and commits
+git reset HEAD [filename] - unstage files from index and reset pointer to HEAD
+git reset SHA (first 7 characters) - reset to a previous commit
+git show HEAD - show last commit
+git checkout HEAD [filename] - reset current file to the most recent commit 
+
+Branching and Merging
+git log - show commit history of a branch
+
+Sharing and Updating Projects
+git pull [alias] - fetch from a remote repo and try to merge into the current branch
+git push [alias] - push your new branches and data to a remote repository
