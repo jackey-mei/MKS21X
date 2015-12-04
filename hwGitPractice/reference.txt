@@ -17,5 +17,5 @@ Branching and Merging
 git log - show commit history of a branch
 
 Sharing and Updating Projects
-git pull [alias] - fetch from a remote repo and try to merge into the current branch
-git push [alias] - push your new branches and data to a remote repository
+git pull - fetch from a remote repo and try to merge into the current branch
+git push - push your new branches and data to a remote repository
