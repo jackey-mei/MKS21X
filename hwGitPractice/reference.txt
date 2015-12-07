@@ -19,5 +19,4 @@ git log - show commit history of a branch
 
 Sharing and Updating Projects
 git pull - fetch from a remote repo and try to merge into the current branch
-
-Add a nonsensical line
+git push - push your new branches and data to a remote repository
