@@ -38,15 +38,20 @@ public class TempConversionWindow extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 	String event = e.getActionCommand();
-	if (event.equals("convertToCelcius")) {
-	    String inputtedTemp = inputTemp.getText();
-	    String newTemp = String.valueOf(tempConvert.FtoC(Integer.parseInt(inputtedTemp)));
-	    convertedTemp.setText(newTemp);
+	try {
+	    if (event.equals("convertToCelcius")) {
+		String inputtedTemp = inputTemp.getText();
+		String newTemp = String.valueOf(tempConvert.FtoC(Integer.parseInt(inputtedTemp)));
+		convertedTemp.setText(newTemp);
+	    }
+	    if (event.equals("convertToFahrenheit")) {
+		String inputtedTemp = inputTemp.getText();
+		String newTemp = String.valueOf(tempConvert.CtoF(Integer.parseInt(inputtedTemp)));
+		convertedTemp.setText(newTemp);
+	    }
 	}
-	if (event.equals("convertToFahrenheit")) {
-	    String inputtedTemp = inputTemp.getText();
-	    String newTemp = String.valueOf(tempConvert.CtoF(Integer.parseInt(inputtedTemp)));
-	    convertedTemp.setText(newTemp);
+	catch (NumberFormatException e2) {
+	    convertedTemp.setText("Invalid Format");
 	}
     }
 }
