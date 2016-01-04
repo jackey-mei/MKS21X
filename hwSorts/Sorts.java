@@ -1,0 +1,51 @@
+public class Sorts {
+    public static void printArray(int[] data) {
+	String message = "[";
+	for (int i = 0; i < data.length; i ++) {
+	    message += data[i] + ", ";
+	}
+	message = message.substring(0, message.length() - 2);
+	message += "]";
+	System.out.println(message);
+    }
+    
+    public static void insertionSort(int[] data) {
+	// goes through each number one by one starting with the second number
+	for (int eachElement = 1; eachElement < data.length; eachElement ++) {
+	    // starts from the number right before the current and starts counting back to the first
+	    for (int checkBack = eachElement - 1; checkBack >= 0; checkBack --) {
+		// checks to see if the current number is less than any of the numbers right before it
+		if (data[eachElement] < data[checkBack]) {
+		    int saveNumber = data[eachElement];
+		    boolean isLower = false;
+		    int lowestNumber = checkBack;
+		    // finds the correct slot for where to put the number/ move all the numbers up to free its slot
+		    while (lowestNumber >= 0 && isLower == false) {
+			if (data[lowestNumber] <= saveNumber) {
+			    isLower = true;
+			    lowestNumber ++;
+			}
+			else {
+			    lowestNumber --;
+			    if (lowestNumber < 0) {
+				lowestNumber = 0;
+				isLower = true;
+			    }
+			}
+		    }
+		    // moves all the numbers up one slot so it frees to the slot where to put the number that is out of place
+		    for (int originalPlace = eachElement; originalPlace > lowestNumber; originalPlace --) {
+			data[originalPlace] = data[originalPlace - 1];
+		    }
+		    data[lowestNumber] = saveNumber;
+		    break;
+		}
+	    }
+	}
+    }
+}
+	      		    
+			    
+		       
+			
+		    
