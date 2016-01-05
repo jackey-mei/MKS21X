@@ -1,4 +1,5 @@
 public class Sorts {
+    private static boolean debug = true;
     public static void printArray(int[] data) {
 	String message = "[";
 	for (int i = 0; i < data.length; i ++) {
@@ -12,6 +13,9 @@ public class Sorts {
     public static void insertionSort(int[] data) {
 	// goes through each number one by one starting with the second number
 	for (int eachElement = 1; eachElement < data.length; eachElement ++) {
+	    if (debug) {
+		printArray(data);
+	    }
 	    // starts from the number right before the current and starts counting back to the first
 	    for (int checkBack = eachElement - 1; checkBack >= 0; checkBack --) {
 		// checks to see if the current number is less than any of the numbers right before it
@@ -48,6 +52,9 @@ public class Sorts {
 	    int currentNumber = data[eachElement];
 	    int numberToReplaceWith = data[eachElement];
 	    int numberToReplaceWithIndex = eachElement;
+	    if (debug) {
+		printArray(data);
+	    }
 	    for (int otherElement = eachElement + 1; otherElement < data.length; otherElement ++) {
 		if (data[otherElement] < numberToReplaceWith) {
 		    numberToReplaceWith = data[otherElement];
@@ -60,6 +67,20 @@ public class Sorts {
 		data[numberToReplaceWithIndex] = savedNumber;
 	    }
 	}
+    }
+
+    public static void bubbleSort(int[] data) {
+	for (int eachElement = 0; eachElement < data.length - 1; eachElement ++) {
+	    if (data[eachElement] >= data[eachElement + 1]) {
+		int savedNumber = data[eachElement];
+		data[eachElement] = data[eachElement + 1];
+		data[eachElement + 1] = savedNumber;
+	    }
+    }
+
+    public static void main(String[] args) {
+	int[] a = {1 , 2,  9, 5, 0, 3};
+	selectionSort(a);
     }
 }
 		    
