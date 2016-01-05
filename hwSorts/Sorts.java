@@ -38,14 +38,28 @@ public class Sorts {
 			data[originalPlace] = data[originalPlace - 1];
 		    }
 		    data[lowestNumber] = saveNumber;
-		    break;
 		}
 	    }
 	}
     }
+
+    public static void selectionSort(int[] data) {
+	for (int eachElement = 0; eachElement < data.length - 1; eachElement ++) {
+	    int currentNumber = data[eachElement];
+	    int numberToReplaceWith = data[eachElement];
+	    int numberToReplaceWithIndex = eachElement;
+	    for (int otherElement = eachElement + 1; otherElement < data.length; otherElement ++) {
+		if (data[otherElement] < numberToReplaceWith) {
+		    numberToReplaceWith = data[otherElement];
+		    numberToReplaceWithIndex = otherElement;
+		}
+	    }
+	    if (numberToReplaceWith < data[eachElement]) {
+		int savedNumber = data[eachElement];
+		data[eachElement] = numberToReplaceWith;
+		data[numberToReplaceWithIndex] = savedNumber;
+	    }
+	}
+    }
 }
-	      		    
-			    
-		       
-			
 		    
