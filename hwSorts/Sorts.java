@@ -70,17 +70,21 @@ public class Sorts {
     }
 
     public static void bubbleSort(int[] data) {
+	boolean isSorted = true;
 	for (int eachElement = 0; eachElement < data.length - 1; eachElement ++) {
+	    if (debug) {
+		printArray(data);
+	    }
 	    if (data[eachElement] >= data[eachElement + 1]) {
 		int savedNumber = data[eachElement];
 		data[eachElement] = data[eachElement + 1];
 		data[eachElement + 1] = savedNumber;
+		isSorted = false;
 	    }
-    }
-
-    public static void main(String[] args) {
-	int[] a = {1 , 2,  9, 5, 0, 3};
-	selectionSort(a);
+	}
+	if (isSorted == false) {
+	    bubbleSort(data);
+	}
     }
 }
 		    
