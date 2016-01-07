@@ -1,5 +1,6 @@
+import java.util.*;
 public class Sorts {
-    private static boolean debug = true;
+    private static boolean debug = false;
     public static void printArray(int[] data) {
 	String message = "[";
 	for (int i = 0; i < data.length; i ++) {
@@ -85,6 +86,19 @@ public class Sorts {
 	if (isSorted == false) {
 	    bubbleSort(data);
 	}
+    }
+
+    public static void fillRandom(int[] ary) {
+	Random rand = new Random();
+	for (int eachSlot = 0; eachSlot < ary.length; eachSlot ++) {
+	    ary[eachSlot] = rand.nextInt();
+	}
+    }
+
+    public static void swap(int[] ary, int pos1, int pos2) {
+	int savedNumber = ary[pos1];
+	ary[pos1] = ary[pos2];
+	ary[pos2] = savedNumber;
     }
 }
 		    

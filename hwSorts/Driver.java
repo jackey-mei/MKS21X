@@ -1,5 +1,6 @@
+import java.util.*;
 public class Driver {
-    public static void main(String[]args) {
+    public static void main(String[] args) {
         int size = 10000;
         String choice = "insertion";
         String order = "random"; // reversed sorted
@@ -15,17 +16,20 @@ public class Driver {
         if(args.length > 2) {
             order = args[2];
         }
-        int[]ary = new int[size];
+	
+        int[] ary = new int[size];
 
         //default is random order
-        Sorts.fillRandom(ary);
-        if(order.equals("random")) {
-
+	Sorts.fillRandom(ary);
+	
+        if (order.equals("random")) {
         }
-        if(order.equals("sorted")) {
+	
+        if (order.equals("sorted")) {
             Arrays.sort(ary);
         }
-        if(order.equals("reversed")) {
+	
+        if (order.equals("reversed")) {
             Arrays.sort(ary);
             for(int i = 0; i < ary.length / 2; i++) {
                 Sorts.swap(ary, i, ary.length - i - 1);
@@ -34,17 +38,18 @@ public class Driver {
 
         long start = System.currentTimeMillis();
 
-        if(choice.equals("bubble")) {
+        if (choice.equals("bubble")) {
             Sorts.bubbleSort(ary);
         }
-        if(choice.equals("insertion")) {
+        if (choice.equals("insertion")) {
             Sorts.insertionSort(ary);
         }
-        if(choice.equals("selection")) {
+        if (choice.equals("selection")) {
             Sorts.selectionSort(ary);
         }
+	
         long end = System.currentTimeMillis();
 
-        System.out.println("Time:" + (end - start)/1000.0 + " seconds. Size = " + ary.length);
+        System.out.println("Time:" + (end - start) / 1000.0 + " seconds. Size = " + ary.length);
     }
 }
